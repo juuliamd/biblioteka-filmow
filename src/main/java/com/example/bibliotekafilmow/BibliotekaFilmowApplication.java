@@ -10,4 +10,5 @@ public class BibliotekaFilmowApplication {
 		SpringApplication.run(BibliotekaFilmowApplication.class, args);
 	}
 
+
 }
