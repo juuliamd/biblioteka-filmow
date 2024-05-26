@@ -1,8 +1,8 @@
 package com.example.bibliotekafilmow.model;
 
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class Filmy {
@@ -15,9 +15,6 @@ public class Filmy {
     private boolean watched;
     private int rating;
     private String review;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="address_id", referencedColumnName = "id")
-    private ListyOgladania listyOgladania;
 
     public Filmy(){}
     public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review, ListyOgladania listyOgladania){

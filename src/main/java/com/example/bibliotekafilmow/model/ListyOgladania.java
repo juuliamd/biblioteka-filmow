@@ -11,13 +11,13 @@ public class ListyOgladania {
     private Integer id;
 
     private String title;
-    private String describtion;
+    private String description;
 
     public ListyOgladania(){
 
     }
     public ListyOgladania(String title, String describtion){
-        this.describtion=describtion;
+        this.description=describtion;
         this.title=title;
     }
     public Integer getId(){
@@ -30,6 +30,6 @@ public class ListyOgladania {
         return title;
     }
     public void setTitle(String title) {this.title=title;}
-    public String getDescribtion() {return describtion;}
-    public void setDescribtion(String describtion) {this.describtion=describtion;}
+    public String getDescribtion() {return description;}
+    public void setDescribtion(String describtion) {this.description=describtion;}
 }
