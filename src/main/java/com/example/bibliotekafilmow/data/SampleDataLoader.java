@@ -3,10 +3,8 @@ package com.example.bibliotekafilmow.data;
 import com.example.bibliotekafilmow.model.Filmy;
 import com.example.bibliotekafilmow.repository.FilmRepository;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.slf4j.LoggerFactory;
 import  org.slf4j.Logger;
 
 @Component
@@ -26,7 +24,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         Filmy film1 = new Filmy();
         film1.setTitle("The Shawshank Redemption");
-        film1.setYear(1994);
+        film1.setReleaseYear(1994);
         film1.setGenre("Drama");
         film1.setWatched(true);
         film1.setRating(9);
@@ -34,7 +32,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         Filmy film2 = new Filmy();
         film2.setTitle("The Godfather");
-        film2.setYear(1972);
+        film2.setReleaseYear(1972);
         film2.setGenre("Crime");
         film2.setWatched(false);
         film2.setRating(9);
@@ -42,7 +40,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         Filmy film3 = new Filmy();
         film3.setTitle("The Dark Knight");
-        film3.setYear(2008);
+        film3.setReleaseYear(2008);
         film3.setGenre("Action");
         film3.setWatched(true);
         film3.setRating(8);
