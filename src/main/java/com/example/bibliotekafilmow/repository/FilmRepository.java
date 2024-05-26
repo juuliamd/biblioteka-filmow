@@ -9,12 +9,11 @@ import java.util.List;
 
 public interface FilmRepository extends JpaRepository<Filmy, Integer> {
     Page<Filmy> findAll(Pageable pageable);
-    //List<Filmy> findByGenre(String genre);
-    //List<Filmy> findAllByOrderByRatingAsc();
-    //List<Filmy> findAllByOrderByRatingDesc();
+    List<Filmy> findByGenre(String genre);
+    List<Filmy> findAllByOrderByRatingAsc();
+    List<Filmy> findAllByOrderByRatingDesc();
 
-    //List<Filmy> findByTitleContainingIngnoreCase(String title);
+    List<Filmy> findByTitleContainingIgnoreCase(String title);
 
-    //List<Filmy> findByTitleContainingIngnoreCase(String title);
-    //List<Filmy> findByWatched(boolean watched);
+    List<Filmy> findByWatched(boolean watched);
 }

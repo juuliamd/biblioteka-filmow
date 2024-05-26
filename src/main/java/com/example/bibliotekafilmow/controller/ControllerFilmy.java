@@ -26,9 +26,9 @@ public class ControllerFilmy {
         return filmRepository.findAll(pr);
     }
 
-    //@PostMapping
-    /*
-    @GetMapping
+    @PostMapping
+
+    //@GetMapping
     public Filmy addFilm(@RequestBody Filmy filmy){
         return filmRepository.save(filmy);
     }
@@ -40,7 +40,7 @@ public class ControllerFilmy {
         if(optionalFilm.isPresent()) {
             Filmy film = optionalFilm.get();
             film.setTitle(updatedFilm.getTitle());
-            film.setYear(updatedFilm.getYear());
+            film.setReleaseYear(updatedFilm.getReleaseYear());
             film.setGenre(updatedFilm.getGenre());
             film.setWatched(updatedFilm.isWatched());
             film.setRating(updatedFilm.getRating());
@@ -57,47 +57,34 @@ public class ControllerFilmy {
     public void deleteFilm(@PathVariable Integer id){
         filmRepository.deleteById(id);
     }
-    */
+
     //wyszukiwanie po tytule
 
-    //@GetMapping("/search")
-   // public List<Filmy> searchFilmsByTitle(@RequestParam String title){
-     //   return filmRepository.findByTitleContainingIngnoreCase(title);
-   // }
-
-    //@GetMapping("/search")
-    //public List<Filmy> searchFilmsByTitle(@RequestParam String title){
-    //   return filmRepository.findByTitleContainingIngnoreCase(title);
-    //}
-
+    @GetMapping("/search")
+    public List<Filmy> searchFilmsByTitle(@RequestParam String title){
+       return filmRepository.findByTitleContainingIgnoreCase(title);
+    }
 
     //po gatunkach
-    //@GetMapping("/filter")
-    //public List<Filmy> filterFilmsByGenre(@RequestParam String genre) {
-    //    return filmRepository.findByGenre(genre);
-    //}
+    @GetMapping("/filter")
+    public List<Filmy> filterFilmsByGenre(@RequestParam String genre) {
+        return filmRepository.findByGenre(genre);
+    }
 
     //sortowanie po ocenie
-    //@GetMapping("/sort")
-    //public List<Filmy> sortFilmsByRating(@RequestParam String direction){
-    //    if(direction.equalsIgnoreCase("asc")){
-    //        return filmRepository.findAllByOrderByRatingAsc();
-    //    }
-    //    else{
-    //        return filmRepository.findAllByOrderByRatingDesc();
-    //    }
-    //}
-    /*
+    @GetMapping("/sort")
+    public List<Filmy> sortFilmsByRating(@RequestParam String direction){
+        if(direction.equalsIgnoreCase("asc")){
+            return filmRepository.findAllByOrderByRatingAsc();
+        }
+        else{
+            return filmRepository.findAllByOrderByRatingDesc();
+        }
+    }
     //obejrzane/nieobejrzane
     @GetMapping("/watched")
     public List<Filmy> filterByWatched(@RequestParam boolean watched){
         return filmRepository.findByWatched(watched);
     }
-
-     */
-
-
-
-
 
 }
