@@ -19,7 +19,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
     //@Override
     public void run(String...args) throws Exception {
-
+    /*
         logger.info("Loading sample data...");
 
         Filmy film1 = new Filmy();
@@ -53,7 +53,7 @@ public class SampleDataLoader implements CommandLineRunner{
         filmRepository.save(film2);
         filmRepository.save(film3);
 
-        logger.info("Sample data loaded successfully!");
+        logger.info("Sample data loaded successfully!");*/
     }
 
 
