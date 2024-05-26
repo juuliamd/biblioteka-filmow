@@ -1,8 +1,6 @@
 package com.example.bibliotekafilmow.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class ListyOgladania {
@@ -13,12 +11,16 @@ public class ListyOgladania {
     private String title;
     private String describtion;
 
+    @OneToOne
+    @JoinColumn(name="film_id")
+    private Filmy filmy;
     public ListyOgladania(){
 
     }
-    public ListyOgladania(String title, String describtion){
+    public ListyOgladania(String title, String describtion, Filmy filmy){
         this.describtion=describtion;
         this.title=title;
+        this.filmy=filmy;
     }
     public Integer getId(){
         return id;
@@ -32,4 +34,10 @@ public class ListyOgladania {
     public void setTitle(String title) {this.title=title;}
     public String getDescribtion() {return describtion;}
     public void setDescribtion(String describtion) {this.describtion=describtion;}
+    public Filmy getFilmy(){
+        return filmy;
+    }
+    public void setFilmy(Filmy filmy){
+        this.filmy=filmy;
+    }
 }
