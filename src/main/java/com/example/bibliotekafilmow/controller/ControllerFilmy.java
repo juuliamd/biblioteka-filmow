@@ -11,7 +11,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/films")
 public class ControllerFilmy {
+
     //@Autowired
+    @Autowired
+
     private FilmRepository filmRepository;
 
     @GetMapping
@@ -19,7 +22,11 @@ public class ControllerFilmy {
         return filmRepository.findAll();
     }
 
+
     @PostMapping
+
+    @GetMapping
+
     public Filmy addFilm(@RequestBody Filmy filmy){
         return filmRepository.save(filmy);
     }
@@ -50,10 +57,17 @@ public class ControllerFilmy {
     }
 
     //wyszukiwanie po tytule
+
     //@GetMapping("/search")
    // public List<Filmy> searchFilmsByTitle(@RequestParam String title){
      //   return filmRepository.findByTitleContainingIngnoreCase(title);
    // }
+
+    @GetMapping("/search")
+    public List<Filmy> searchFilmsByTitle(@RequestParam String title){
+        return filmRepository.findByTitleContainingIngnoreCase(title);
+    }
+
 
     //po gatunkach
     @GetMapping("/filter")
