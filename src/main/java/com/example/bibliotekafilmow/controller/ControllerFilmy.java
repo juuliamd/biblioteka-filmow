@@ -1,7 +1,9 @@
 package com.example.bibliotekafilmow.controller;
 
 import com.example.bibliotekafilmow.model.Filmy;
+import com.example.bibliotekafilmow.model.ListyOgladania;
 import com.example.bibliotekafilmow.repository.FilmRepository;
+import com.example.bibliotekafilmow.repository.ListyOgladaniaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,8 +21,10 @@ public class ControllerFilmy {
     //@Autowired
 
     private final FilmRepository filmRepository;
-    public ControllerFilmy(FilmRepository filmRepository){
+    private final ListyOgladaniaRepository listyOgladaniaRepository;
+    public ControllerFilmy(FilmRepository filmRepository, ListyOgladaniaRepository listyOgladaniaRepository){
         this.filmRepository=filmRepository;
+        this.listyOgladaniaRepository=listyOgladaniaRepository;
     }
 
     @GetMapping
@@ -94,6 +98,38 @@ public class ControllerFilmy {
     public ResponseEntity<List<Filmy>> filterByWatched(@RequestParam boolean watched) {
         List<Filmy> filteredFilms = filmRepository.findByWatched(watched);
         return ResponseEntity.ok(filteredFilms);
+    }
+    @PostMapping("/{filmId}/listy-ogladania")
+    public ResponseEntity<ListyOgladania> addToListaOgladania(@PathVariable Integer filmId, @RequestBody ListyOgladania listaOgladania) {
+        Optional<Filmy> optionalFilm = filmRepository.findById(filmId);
+        if (optionalFilm.isPresent()) {
+            Filmy film = optionalFilm.get();
+            listaOgladania.setFilmy(film);
+            ListyOgladania savedLista = listyOgladaniaRepository.save(listaOgladania);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedLista);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No film with such id: " + filmId);
+        }
+    }
+
+    @PutMapping("/{filmId}/listy-ogladania/{listaId}")
+    public ResponseEntity<ListyOgladania> updateListaOgladania(@PathVariable Integer filmId, @PathVariable Integer listaId, @RequestBody ListyOgladania updatedListaOgladania) {
+        Optional<ListyOgladania> optionalLista = listyOgladaniaRepository.findById(listaId);
+        if (optionalLista.isPresent()) {
+            ListyOgladania listaOgladania = optionalLista.get();
+            listaOgladania.setTitle(updatedListaOgladania.getTitle());
+            listaOgladania.setDescribtion(updatedListaOgladania.getDescribtion());
+            ListyOgladania savedLista = listyOgladaniaRepository.save(listaOgladania);
+            return ResponseEntity.ok(savedLista);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No list with such id: " + listaId);
+        }
+    }
+
+    @DeleteMapping("/{filmId}/listy-ogladania/{listaId}")
+    public ResponseEntity<Void> removeFromListaOgladania(@PathVariable Integer filmId, @PathVariable Integer listaId) {
+        listyOgladaniaRepository.deleteById(listaId);
+        return ResponseEntity.noContent().build();
     }
 
 }
