@@ -9,18 +9,17 @@ import org.springframework.stereotype.Component;
 import org.slf4j.LoggerFactory;
 import  org.slf4j.Logger;
 
-
 @Component
 public class SampleDataLoader implements CommandLineRunner{
 
     private Logger logger= LoggerFactory.getLogger(SampleDataLoader.class);
-    @Autowired
+    //@Autowired
     private final FilmRepository filmRepository;
     public SampleDataLoader(FilmRepository filmRepository){
         this.filmRepository=filmRepository;
     }
 
-    @Override
+    //@Override
     public void run(String...args) throws Exception {
 
         logger.info("Loading sample data...");
@@ -48,6 +47,9 @@ public class SampleDataLoader implements CommandLineRunner{
         film3.setWatched(true);
         film3.setRating(8);
         film3.setReview("A thrilling and dark superhero movie");
+
+        Filmy film4 = new Filmy("fbdjhbfv",2344,"fvuid",false,6,"vfdkjnfvkjn");
+        filmRepository.save(film4);
 
         filmRepository.save(film1);
         filmRepository.save(film2);

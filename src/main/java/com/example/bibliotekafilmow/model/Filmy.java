@@ -16,7 +16,15 @@ public class Filmy {
     private int rating;
     private String review;
 
-
+    public Filmy(){}
+    public Filmy(String title, int year, String genre, boolean watched, int rating, String review){
+        this.title=title;
+        this.year=year;
+        this.genre=genre;
+        this.watched=watched;
+        this.rating=rating;
+        this.review=review;
+    }
     public Integer getId(){
         return id;
     }

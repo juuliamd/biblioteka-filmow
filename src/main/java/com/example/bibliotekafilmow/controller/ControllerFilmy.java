@@ -11,9 +11,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/films")
 public class ControllerFilmy {
-
     //@Autowired
-    @Autowired
 
     private FilmRepository filmRepository;
 
@@ -63,10 +61,10 @@ public class ControllerFilmy {
      //   return filmRepository.findByTitleContainingIngnoreCase(title);
    // }
 
-    @GetMapping("/search")
-    public List<Filmy> searchFilmsByTitle(@RequestParam String title){
-        return filmRepository.findByTitleContainingIngnoreCase(title);
-    }
+    //@GetMapping("/search")
+    //public List<Filmy> searchFilmsByTitle(@RequestParam String title){
+    //   return filmRepository.findByTitleContainingIngnoreCase(title);
+    //}
 
 
     //po gatunkach

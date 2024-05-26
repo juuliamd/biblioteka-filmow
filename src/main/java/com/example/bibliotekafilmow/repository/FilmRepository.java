@@ -9,9 +9,9 @@ public interface FilmRepository extends JpaRepository<Filmy, Integer> {
     List<Filmy> findByGenre(String genre);
     List<Filmy> findAllByOrderByRatingAsc();
     List<Filmy> findAllByOrderByRatingDesc();
-    
+
     //List<Filmy> findByTitleContainingIngnoreCase(String title);
 
-    List<Filmy> findByTitleContainingIngnoreCase(String title);
+    //List<Filmy> findByTitleContainingIngnoreCase(String title);
     List<Filmy> findByWatched(boolean watched);
 }
