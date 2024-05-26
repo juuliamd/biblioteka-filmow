@@ -99,7 +99,7 @@ public class ControllerFilmy {
         List<Filmy> filteredFilms = filmRepository.findByWatched(watched);
         return ResponseEntity.ok(filteredFilms);
     }
-    @PostMapping("/{filmId}/listy-ogladania")
+    @PostMapping("/listy-ogladania")
     public ResponseEntity<ListyOgladania> addToListaOgladania(@PathVariable Integer filmId, @RequestBody ListyOgladania listaOgladania) {
         Optional<Filmy> optionalFilm = filmRepository.findById(filmId);
         if (optionalFilm.isPresent()) {
@@ -111,8 +111,21 @@ public class ControllerFilmy {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No film with such id: " + filmId);
         }
     }
+    @PostMapping("/{filmId}/listy-ogladania")
+    public ResponseEntity<ListyOgladania> addListyOgladaniaToFilm(@PathVariable Integer filmId, @RequestBody ListyOgladania listaOgladania) {
+        Optional<Filmy> optionalFilm = filmRepository.findById(filmId);
+        if (optionalFilm.isPresent()) {
+            Filmy film = optionalFilm.get();
+            listaOgladania.setFilmy(film);
+            ListyOgladania savedLista = listyOgladaniaRepository.save(listaOgladania);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedLista);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No film with such id: " + filmId);
+        }
+    }
 
-    @PutMapping("/{filmId}/listy-ogladania/{listaId}")
+
+    @PutMapping("/listy-ogladania/{listaId}")
     public ResponseEntity<ListyOgladania> updateListaOgladania(@PathVariable Integer filmId, @PathVariable Integer listaId, @RequestBody ListyOgladania updatedListaOgladania) {
         Optional<ListyOgladania> optionalLista = listyOgladaniaRepository.findById(listaId);
         if (optionalLista.isPresent()) {
