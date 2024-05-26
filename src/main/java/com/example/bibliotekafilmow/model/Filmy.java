@@ -20,13 +20,14 @@ public class Filmy {
     private ListyOgladania listyOgladania;
 
     public Filmy(){}
-    public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review){
+    public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review, ListyOgladania listyOgladania){
         this.title=title;
         this.releaseYear = releaseYear;
         this.genre=genre;
         this.watched=watched;
         this.rating=rating;
         this.review=review;
+        this.listyOgladania=listyOgladania;
     }
     public Integer getId(){
         return id;
@@ -69,6 +70,12 @@ public class Filmy {
     }
     public void setReview(String review) {
         this.review = review;
+    }
+    public ListyOgladania getListyOgladania(){
+        return listyOgladania;
+    }
+    public void setListyOgladania(ListyOgladania listyOgladania){
+        this.listyOgladania=listyOgladania;
     }
 
     @Override
