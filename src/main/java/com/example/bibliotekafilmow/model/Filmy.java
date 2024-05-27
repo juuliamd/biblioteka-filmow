@@ -15,19 +15,19 @@ public class Filmy {
     private boolean watched;
     private int rating;
     private String review;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="address_id", referencedColumnName = "id")
-    private ListyOgladania listyOgladania;
+    //@OneToMany(mappedBy = "filmy", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name="address_id", referencedColumnName = "id")
+    //private List<ListyOgladania> listyOgladania;
 
     public Filmy(){}
-    public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review, ListyOgladania listyOgladania){
+    public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review){//, List<ListyOgladania> listyOgladania){
         this.title=title;
         this.releaseYear = releaseYear;
         this.genre=genre;
         this.watched=watched;
         this.rating=rating;
         this.review=review;
-        this.listyOgladania=listyOgladania;
+        //this.listyOgladania=listyOgladania;
     }
     public Integer getId(){
         return id;
@@ -71,12 +71,12 @@ public class Filmy {
     public void setReview(String review) {
         this.review = review;
     }
-    public ListyOgladania getListyOgladania(){
-        return listyOgladania;
-    }
-    public void setListyOgladania(ListyOgladania listyOgladania){
-        this.listyOgladania=listyOgladania;
-    }
+    //public List<ListyOgladania> getListyOgladania(){
+    //    return listyOgladania;
+    //}
+    //public void setListyOgladania(List<ListyOgladania> listyOgladania){
+    //    this.listyOgladania=listyOgladania;
+    //}
 
     @Override
     public String toString(){

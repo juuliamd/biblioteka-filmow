@@ -9,18 +9,15 @@ public class ListyOgladania {
     private Integer id;
 
     private String title;
-    private String describtion;
+    private String description;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="film_id")
     private Filmy filmy;
-    public ListyOgladania(){
-
-    }
-    public ListyOgladania(String title, String describtion, Filmy filmy){
-        this.describtion=describtion;
+    public ListyOgladania(){}
+    public ListyOgladania(String title, String description){
+        this.description = description;
         this.title=title;
-        this.filmy=filmy;
     }
     public Integer getId(){
         return id;
@@ -32,8 +29,8 @@ public class ListyOgladania {
         return title;
     }
     public void setTitle(String title) {this.title=title;}
-    public String getDescribtion() {return describtion;}
-    public void setDescribtion(String describtion) {this.describtion=describtion;}
+    public String getDescription() {return description;}
+    public void setDescription(String description) {this.description =description;}
     public Filmy getFilmy(){
         return filmy;
     }
