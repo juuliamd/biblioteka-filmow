@@ -1,6 +1,7 @@
 package com.example.bibliotekafilmow.data;
 
 import com.example.bibliotekafilmow.model.Filmy;
+import com.example.bibliotekafilmow.model.ListyOgladania;
 import com.example.bibliotekafilmow.repository.FilmRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,7 +20,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
     //@Override
     public void run(String...args) throws Exception {
-    /*
+
         logger.info("Loading sample data...");
 
         Filmy film1 = new Filmy();
@@ -30,6 +31,12 @@ public class SampleDataLoader implements CommandLineRunner{
         film1.setRating(9);
         film1.setReview("A masterpiece of storytelling");
 
+        ListyOgladania listaOgladania1 = new ListyOgladania();
+        listaOgladania1.setTitle("Moja lista 1");
+        listaOgladania1.setDescribtion("Lista filmów, które chcę obejrzeć");
+
+        film1.setListyOgladania(listaOgladania1);
+
         Filmy film2 = new Filmy();
         film2.setTitle("The Godfather");
         film2.setReleaseYear(1972);
@@ -37,6 +44,12 @@ public class SampleDataLoader implements CommandLineRunner{
         film2.setWatched(false);
         film2.setRating(9);
         film2.setReview("An iconic film with brilliant performances");
+
+        ListyOgladania listaOgladania2 = new ListyOgladania();
+        listaOgladania2.setTitle("Moja lista 2");
+        listaOgladania2.setDescribtion("Lista filmów do obejrzenia później");
+
+        film2.setListyOgladania(listaOgladania2);
 
         Filmy film3 = new Filmy();
         film3.setTitle("The Dark Knight");
@@ -46,14 +59,19 @@ public class SampleDataLoader implements CommandLineRunner{
         film3.setRating(8);
         film3.setReview("A thrilling and dark superhero movie");
 
-        Filmy film4 = new Filmy("fbdjhbfv",2344,"fvuid",false,6,"vfdkjnfvkjn");
-        filmRepository.save(film4);
+        ListyOgladania listaOgladania3 = new ListyOgladania();
+        listaOgladania3.setTitle("Moja lista 3");
+        listaOgladania3.setDescribtion("Lista filmów do obejrzenia ponownie");
+
+        film3.setListyOgladania(listaOgladania3);
+
 
         filmRepository.save(film1);
         filmRepository.save(film2);
         filmRepository.save(film3);
 
-        logger.info("Sample data loaded successfully!");*/
+
+        logger.info("Sample data loaded successfully!");
     }
 
 

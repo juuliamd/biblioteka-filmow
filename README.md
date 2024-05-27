@@ -123,6 +123,38 @@ Aplikacja webowa do zarządzania biblioteką filmów. Projekt ten wykorzystuje S
     curl -X GET "http://localhost:8080/api/films/watched?watched=true"
     ```
 
+### Dodawanie do Listy Oglądania
+URL: /api/films/{filmId}/listy-ogladania
+Metoda: POST
+Parametry: filmId - ID filmu.
+Body: JSON zawierający dane Listy Oglądania.
+  ```bash
+  curl -X POST "http://localhost:8080/api/films/1/listy-ogladania" -H "Content-Type: application/json" -d '{
+  "title": "Moja lista",
+  "description": "Filmy do obejrzenia w weekend"
+    }'
+  ```
+### Edycja Listy Oglądania
+URL: /api/films/{filmId}/listy-ogladania/{listaId}
+Metoda: PUT
+Parametry: filmId - ID filmu, listaId - ID Listy Oglądania do zaktualizowania.
+```
+curl -X PUT "http://localhost:8080/api/films/1/listy-ogladania/1" -H "Content-Type: application/json" -d '{
+  "title": "Zaktualizowana lista",
+  "description": "Zaktualizowane opisy filmów"
+}'
+```
+### Usuwanie z Listy Oglądania
+URL: /api/films/{filmId}/listy-ogladania/{listaId}
+Metoda: DELETE
+Parametry: filmId - ID filmu, listaId - ID Listy Oglądania do usunięcia.
+```
+curl -X DELETE "http://localhost:8080/api/films/1/listy-ogladania/1"
+```
+
+
+
+
 ## Autor
 
 - Twoje Imię i Nazwisko
