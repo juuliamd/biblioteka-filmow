@@ -33,7 +33,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         ListyOgladania listaOgladania1 = new ListyOgladania();
         listaOgladania1.setTitle("Moja lista 1");
-        listaOgladania1.setDescribtion("Lista filmów, które chcę obejrzeć");
+        listaOgladania1.setDescription("Lista filmów, które chcę obejrzeć");
 
         film1.setListyOgladania(listaOgladania1);
 
@@ -47,7 +47,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         ListyOgladania listaOgladania2 = new ListyOgladania();
         listaOgladania2.setTitle("Moja lista 2");
-        listaOgladania2.setDescribtion("Lista filmów do obejrzenia później");
+        listaOgladania2.setDescription("Lista filmów do obejrzenia później");
 
         film2.setListyOgladania(listaOgladania2);
 
@@ -61,7 +61,7 @@ public class SampleDataLoader implements CommandLineRunner{
 
         ListyOgladania listaOgladania3 = new ListyOgladania();
         listaOgladania3.setTitle("Moja lista 3");
-        listaOgladania3.setDescribtion("Lista filmów do obejrzenia ponownie");
+        listaOgladania3.setDescription("Lista filmów do obejrzenia ponownie");
 
         film3.setListyOgladania(listaOgladania3);
 

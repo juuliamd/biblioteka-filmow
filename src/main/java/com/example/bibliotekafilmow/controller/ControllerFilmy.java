@@ -4,7 +4,6 @@ import com.example.bibliotekafilmow.model.Filmy;
 import com.example.bibliotekafilmow.model.ListyOgladania;
 import com.example.bibliotekafilmow.repository.FilmRepository;
 import com.example.bibliotekafilmow.repository.ListyOgladaniaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -131,7 +130,7 @@ public class ControllerFilmy {
         if (optionalLista.isPresent()) {
             ListyOgladania listaOgladania = optionalLista.get();
             listaOgladania.setTitle(updatedListaOgladania.getTitle());
-            listaOgladania.setDescribtion(updatedListaOgladania.getDescribtion());
+            listaOgladania.setDescription(updatedListaOgladania.getDescription());
             ListyOgladania savedLista = listyOgladaniaRepository.save(listaOgladania);
             return ResponseEntity.ok(savedLista);
         } else {

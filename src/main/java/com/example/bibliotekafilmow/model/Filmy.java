@@ -16,6 +16,8 @@ public class Filmy {
     private int rating;
     private String review;
 
+    private ListyOgladania listyOgladania;
+
     public Filmy(){}
     public Filmy(String title, int releaseYear, String genre, boolean watched, int rating, String review, ListyOgladania listyOgladania){
         this.title=title;
